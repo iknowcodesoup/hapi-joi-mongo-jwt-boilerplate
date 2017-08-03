@@ -1,0 +1,31 @@
+{
+  "name": "remoteblue",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/iknowcodesoup/remoteblue.git"
+  },
+  "keywords": [
+    "noble",
+    "ble",
+    "bluetooth",
+    "low",
+    "energy",
+    "bleno"
+  ],
+  "author": "Jeff Holcombe",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/iknowcodesoup/remoteblue/issues"
+  },
+  "homepage": "https://github.com/iknowcodesoup/remoteblue#readme",
+  "dependencies": {
+    "noble": "^1.8.1"
+  },
+  "devDependencies": {}
+}
