@@ -50,7 +50,7 @@ gulp.task('start', function () {
 });
 
 gulp.task("watch", ["build", "start"], function () {
-  gulp.watch(src);
+  gulp.watch(src, ["build"]);
 });
 
 gulp.task("default", ["clean", "build"]);
