@@ -4,10 +4,10 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _pingRoute = require('./pingRoute');
+var _statusRoute = require('./statusRoute');
 
-var _pingRoute2 = _interopRequireDefault(_pingRoute);
+var _statusRoute2 = _interopRequireDefault(_statusRoute);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-exports.default = [_pingRoute2.default];
+exports.default = [_statusRoute2.default];

@@ -1,2 +1,2 @@
-import pingRoute from './pingRoute';
-export default [pingRoute];
+import statusRoute from './statusRoute';
+export default [statusRoute];
