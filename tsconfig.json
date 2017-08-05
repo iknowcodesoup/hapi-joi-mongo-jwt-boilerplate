@@ -3,8 +3,20 @@
     "target": "es6",
     "module": "es6",
     "moduleResolution": "node",
+    "isolatedModules": false,
     "experimentalDecorators": true,
-    "noImplicitAny": true
+    "emitDecoratorMetadata": true,
+    "declaration": false,
+    "noImplicitAny": false,
+    "removeComments": true,
+    "noLib": false,
+    "preserveConstEnums": true,
+    "suppressImplicitAnyIndexErrors": true,
+    "outDir": "build"
   },
-  "exclude": ["node_modules"]
+  "compileOnSave": true,
+  "buildOnSave": false,
+  "exclude": [
+      "node_modules"
+    ]
 }
