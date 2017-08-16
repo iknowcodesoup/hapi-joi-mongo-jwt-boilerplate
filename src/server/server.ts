@@ -1,14 +1,17 @@
 import * as Hapi from 'hapi';
-
-import serverConfig from '../config/server';
+import { authSetup } from './authSetup';
+import { hapiConfig } from './config';
+import { attachRoutes } from './attachRoutes';
+import * as jwtAuth from 'hapi-auth-jwt2';
 //import plugins          from './plugins';
-import routes from './routes';
 
 const server = new Hapi.Server();
 
-server.connection(serverConfig);
+server.connection(hapiConfig);
+server.register(jwtAuth, () => { authSetup(server); });
 
 //plugins( server );
-routes(server);
+
+attachRoutes(server);
 
 export default server;

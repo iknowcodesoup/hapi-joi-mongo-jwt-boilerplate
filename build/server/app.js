@@ -1,11 +1,5 @@
-'use strict';
+import server from './server';
+server.start()
+    .then(() => console.log(`API server running at ${server.info.uri}`));
 
-var _server = require('./server');
-
-var _server2 = _interopRequireDefault(_server);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-_server2.default.start().then(function () {
-    return console.log('API server running at ' + _server2.default.info.uri);
-});
+//# sourceMappingURL=data:application/json;charset=utf8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNlcnZlci9hcHAudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUEsT0FBTyxNQUFNLE1BQU0sVUFBVSxDQUFDO0FBRTlCLE1BQU0sQ0FBQyxLQUFLLEVBQUU7S0FDVCxJQUFJLENBQUMsTUFBTSxPQUFPLENBQUMsR0FBRyxDQUFDLHlCQUF5QixNQUFNLENBQUMsSUFBSSxDQUFDLEdBQUcsRUFBRSxDQUFDLENBQUMsQ0FBQyIsImZpbGUiOiJzZXJ2ZXIvYXBwLmpzIiwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IHNlcnZlciBmcm9tICcuL3NlcnZlcic7XG5cbnNlcnZlci5zdGFydCgpXG4gICAgLnRoZW4oKCkgPT4gY29uc29sZS5sb2coYEFQSSBzZXJ2ZXIgcnVubmluZyBhdCAke3NlcnZlci5pbmZvLnVyaX1gKSk7XG4iXX0=

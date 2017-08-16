@@ -1,13 +1,7 @@
-'use strict';
+import getStatusRoute from './status/getStatusRoute';
+import createUserRoute from './users/createUserRoute';
+import getUsersRoute from './users/getUsersRoute';
+import updateUserRoute from './users/updateUserRoute';
+export default [getStatusRoute, createUserRoute, getUsersRoute, updateUserRoute];
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _statusRoute = require('./statusRoute');
-
-var _statusRoute2 = _interopRequireDefault(_statusRoute);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-exports.default = [_statusRoute2.default];
+//# sourceMappingURL=data:application/json;charset=utf8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInJvdXRlcy9pbmRleC50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQSxPQUFPLGNBQWMsTUFBTSx5QkFBeUIsQ0FBQztBQUNyRCxPQUFPLGVBQWUsTUFBTSx5QkFBeUIsQ0FBQztBQUN0RCxPQUFPLGFBQWEsTUFBTSx1QkFBdUIsQ0FBQztBQUNsRCxPQUFPLGVBQWUsTUFBTSx5QkFBeUIsQ0FBQztBQUV0RCxlQUFlLENBQUMsY0FBYyxFQUFFLGVBQWUsRUFBRSxhQUFhLEVBQUUsZUFBZSxDQUFDLENBQUMiLCJmaWxlIjoicm91dGVzL2luZGV4LmpzIiwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IGdldFN0YXR1c1JvdXRlIGZyb20gJy4vc3RhdHVzL2dldFN0YXR1c1JvdXRlJztcclxuaW1wb3J0IGNyZWF0ZVVzZXJSb3V0ZSBmcm9tICcuL3VzZXJzL2NyZWF0ZVVzZXJSb3V0ZSc7XHJcbmltcG9ydCBnZXRVc2Vyc1JvdXRlIGZyb20gJy4vdXNlcnMvZ2V0VXNlcnNSb3V0ZSc7XHJcbmltcG9ydCB1cGRhdGVVc2VyUm91dGUgZnJvbSAnLi91c2Vycy91cGRhdGVVc2VyUm91dGUnO1xyXG5cclxuZXhwb3J0IGRlZmF1bHQgW2dldFN0YXR1c1JvdXRlLCBjcmVhdGVVc2VyUm91dGUsIGdldFVzZXJzUm91dGUsIHVwZGF0ZVVzZXJSb3V0ZV07Il19

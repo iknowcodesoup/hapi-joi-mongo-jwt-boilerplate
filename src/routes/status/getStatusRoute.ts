@@ -1,20 +1,19 @@
 import {
     IRouteConfiguration
 } from 'hapi';
-//import * as Joi from 'joi';
 
 import { statusHandler } from './handlers/statusHandler';
+import { defaultResponseHandler } from '../defaultResponseHandler';
 
 const statusRoute: IRouteConfiguration =
     {
         method: 'GET',
-        path: '/status',
+        path: '/api/status',
         config: {
-            pre: [{ method: statusHandler, assign: 'status' }]
+            auth: 'jwt',
+            pre: [{ method: statusHandler, assign: 'response' }]
         },
-        handler: function(request, reply) {
-            reply(request.pre.status).code(200);
-        }
+        handler: defaultResponseHandler
     };
 
 export default statusRoute;

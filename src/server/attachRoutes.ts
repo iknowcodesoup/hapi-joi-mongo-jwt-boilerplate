@@ -1,10 +1,10 @@
 import {
     Server
 } from 'hapi';
-import routes from '../routes/index';
+import routes from '../routes';
 
 const attachRoutes = (server: Server) => {
     server.route(routes);
 };
 
-export default attachRoutes;
+export { attachRoutes };

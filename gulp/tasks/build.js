@@ -1,29 +1,47 @@
 import gulp from "gulp";
+import pump from "pump";
 import config from '../config';
-import babel from "gulp-babel";
-import typescript from "gulp-typescript";
-//import concat from "gulp-concat";
-import merge from "merge2";
-import Cache from 'gulp-file-cache';
+import concat from "gulp-concat";
+import rollup from 'gulp-better-rollup';
+import packagesJson from '../../package.json';
+/* // NOTE: Enable for transpile
+import babel from "rollup-plugin-babel";
 
 const babelConf = {
-  presets: ["es2015"]
+  babelrc: false,
+  presets: [
+    [
+      "es2015",
+      {
+        "modules": false
+      }
+    ]
+  ],
+  exclude: 'node_modules/**',
+  plugins: [
+    "external-helpers"
+  ]
 };
-const project = typescript.createProject("tsconfig.json", {
-  outDir: config.buildDir,
-  typescript: require("typescript"),
-});
-const cache = new Cache();
+*/
 
-gulp.task("build", function () {
-  var result = gulp.src(config.sourceDir).pipe(typescript(project));
+gulp.task("build", ["compile"], function (cb) {
+  var externalDependencies = Object.keys(packagesJson.dependencies);
 
-  return merge([
-    result.dts.pipe(gulp.dest(`${config.buildDir}/definitions`)),
-    result.js
-      .pipe(cache.filter())
-      .pipe(babel(babelConf))
-      .pipe(cache.cache())
-      .pipe(gulp.dest(`${config.buildDir}`))
-  ]);
+  pump([
+      gulp.src(`${config.buildDir}/server/app.js`),
+      rollup({
+        entry: `${config.buildDir}/server/app.js`,
+        external: externalDependencies,
+        globals: {
+          'hapi-auth-jwt2': 'hapi-auth-jwt2',
+          'hapi': 'Hapi',
+          'buffer': 'Buffer'
+        }
+        //        plugins: [babel(babelConf)] // NOTE: Enable for transpile
+      }, 'umd'),
+      concat('app.js'),
+      gulp.dest(`${config.buildDir}`)
+    ],
+    cb
+  );
 });

@@ -3,5 +3,7 @@ import gulp from 'gulp';
 import del from 'del';
 
 gulp.task('clean', function (cb) {
-    return del([config.buildDir], cb);
+  var stream = del([config.buildDir], cb);
+
+  return stream;
 });
