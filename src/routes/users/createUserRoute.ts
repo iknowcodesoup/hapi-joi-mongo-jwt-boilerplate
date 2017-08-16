@@ -1,20 +1,15 @@
 import {
     IRouteConfiguration
 } from 'hapi';
-import Joi from 'joi';
 import { verifyUniqueUserHandler } from './handlers/verifyUniqueUserHandler';
 import { createUserHandler } from './handlers/createUserHandler';
 import { defaultResponseHandler } from '../defaultResponseHandler';
 
+const Joi require('joi');
+
 const createUserRoute: IRouteConfiguration = {
     method: 'POST',
     path: '/api/users',
-    validate: {
-        payload: Joi.object({
-            username: Joi.string().alphanum().min(2).max(30).required(),
-            email: Joi.string().email().required()
-        })
-    },
     config: {
         auth: 'jwt',
         pre: [{
@@ -24,9 +19,15 @@ const createUserRoute: IRouteConfiguration = {
         {
             method: createUserHandler,
             assign: 'response'
-        }]
-    },
-    handler: defaultResponseHandler
-};
+        }],
+        validate: {
+            payload: Joi.object({
+                username: Joi.string().alphanum().min(2).max(30).required(),
+                email: Joi.string().email().required()
+            })
+        },
+        handler: defaultResponseHandler
+    }
+}
 
 export default createUserRoute;

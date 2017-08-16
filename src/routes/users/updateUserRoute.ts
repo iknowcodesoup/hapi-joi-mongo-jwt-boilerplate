@@ -1,9 +1,11 @@
 import Boom from 'boom';
 import User from '../../models/User';
-import Joi from 'joi';
 import { verifyUniqueUserHandler } from './handlers/verifyUniqueUserHandler';
 import { updateUserHandler } from './handlers/updateUserHandler';
 import { defaultResponseHandler } from '../defaultResponseHandler';
+
+const Joi require( 'joi');
+Joi.objectId = require('joi-objectid')(Joi);
 
 const updateUserRoute = {
     method: 'PATCH',

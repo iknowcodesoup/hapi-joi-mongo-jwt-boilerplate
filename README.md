@@ -1,1 +1,1 @@
-# remoteblue
+# hapi_joi_mongo_jwt_boilerplate
