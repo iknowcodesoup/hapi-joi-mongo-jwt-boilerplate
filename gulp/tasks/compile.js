@@ -9,8 +9,8 @@ const project = typescript.createProject("tsconfig.json", {
   typescript: require("typescript"),
 });
 
-gulp.task("compile", ["clean"], function () {
-  var result = gulp.src(config.sourceDir)
+gulp.task("compile", ["keys"], function () {
+  var result = gulp.src('./src/**/*.ts')
     .pipe(sourcemaps.init())
     .pipe(typescript(project));
 

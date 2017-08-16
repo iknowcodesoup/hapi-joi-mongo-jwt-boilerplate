@@ -10,7 +10,7 @@ const statusRoute: IRouteConfiguration =
         method: 'GET',
         path: '/api/status',
         config: {
-            auth: 'jwt',
+            auth: false,
             pre: [{ method: statusHandler, assign: 'response' }]
         },
         handler: defaultResponseHandler

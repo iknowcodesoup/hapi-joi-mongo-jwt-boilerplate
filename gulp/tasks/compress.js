@@ -1,6 +1,7 @@
 import gulp from "gulp";
 import config from '../config';
 import uglify from "gulp-uglify";
+import rename from 'gulp-rename';
 import pump from "pump";
 
 gulp.task('compress', function (cb) {

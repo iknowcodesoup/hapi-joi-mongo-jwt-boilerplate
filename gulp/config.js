@@ -2,7 +2,9 @@
 
 export default {
 
-	sourceDir: './src/**/*.ts',
-	buildDir: './build',
+  buildFiles: './build/**.*',
+  buildDir: './build',
+  keyFiles: './src/server/keys/**.*.ts',
+  keysDir: './src/server/keys'
 
 };

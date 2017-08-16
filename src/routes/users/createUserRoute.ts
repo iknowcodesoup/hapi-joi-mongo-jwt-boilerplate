@@ -5,7 +5,7 @@ import { verifyUniqueUserHandler } from './handlers/verifyUniqueUserHandler';
 import { createUserHandler } from './handlers/createUserHandler';
 import { defaultResponseHandler } from '../defaultResponseHandler';
 
-const Joi require('joi');
+const Joi = require('joi');
 
 const createUserRoute: IRouteConfiguration = {
     method: 'POST',
