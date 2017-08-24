@@ -4,7 +4,7 @@ import uglify from "gulp-uglify";
 import rename from 'gulp-rename';
 import pump from "pump";
 
-gulp.task('compress', function (cb) {
+gulp.task('compress', ["lint"], function (cb) {
   pump([
       gulp.src(`${config.buildDir}/app.js`),
       uglify(),
