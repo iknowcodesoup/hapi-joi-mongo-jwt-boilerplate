@@ -35,7 +35,9 @@ gulp.task("build", ["compile"], function (cb) {
         globals: {
           'hapi-auth-jwt2': 'hapi-auth-jwt2',
           'hapi': 'Hapi',
-          'buffer': 'Buffer'
+          'buffer': 'Buffer',
+          'boom': 'Boom',
+          'mongoose': 'mongoose'
         }
         //        plugins: [babel(babelConf)] // NOTE: Enable for transpile
       }, 'umd'),

@@ -2,7 +2,7 @@
   "name"             : "remoteblue-app",
   "cwd"              : "/srv/node-app/current",
   "args"             : ["--toto=heya coco", "-d", "1"],
-  "script"           : "build/app.js",
+  "script"           : "build/app.min.js",
   "node_args"        : ["--harmony", " --max-stack-size=102400000"],
   "log_date_format"  : "YYYY-MM-DD HH:mm Z",
   "error_file"       : "logs/remoteblue-app.stderr.log",
