@@ -1,4 +1,5 @@
 import mongoose from 'mongoose';
+import { UserRoleType } from './types';
 const Schema = mongoose.Schema;
 
 const userModel = new Schema({
@@ -15,6 +16,11 @@ const userModel = new Schema({
 		index: {
 			unique: true
 		}
+	},
+	role: {
+		type: UserRoleType,
+		required: false,
+    default: UserRoleType.base
 	}
 });
 

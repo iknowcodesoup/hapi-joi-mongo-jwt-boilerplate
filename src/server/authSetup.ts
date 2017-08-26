@@ -1,11 +1,9 @@
 import {
     Server
 } from 'hapi';
-import validateRequest from './validateRequest';
+import authValidation from './authValidation';
 import { Buffer } from 'buffer';
 import tokenSecret from './keys/token_secret';
-import JWT from 'jsonwebtoken';
-import Boom from 'boom';
 
 const authSetup = (server: Server) => {
     server.auth.strategy('jwt', 'jwt', 'required',
@@ -16,17 +14,7 @@ const authSetup = (server: Server) => {
             },
             urlKey: false,
             cookieKey: false,
-            verifyFunc: (_d, request, callback) => {
-                try {
-                    const decoded = JWT.verify(request.headers.authorization, tokenSecret);
-                    if (decoded) {
-                        return callback(null, true);
-                    }
-                } catch (e) {
-                    return callback(Boom.unauthorized(null, 'jwt'));
-                }
-                return false;
-            }
+            verifyFunc: authValidation
         });
 };
 

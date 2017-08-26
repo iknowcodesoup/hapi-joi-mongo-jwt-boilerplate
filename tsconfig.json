@@ -12,7 +12,15 @@
     "noLib": false,
     "preserveConstEnums": true,
     "suppressImplicitAnyIndexErrors": true,
-    "outDir": "build"
+    "outDir": "build",
+    "types": [
+            "node"
+         ],
+    "baseUrl": ".",
+    "paths": {
+      "models/*": ["src/models/*"],
+      "routes/*": ["src/routes/*"]
+    }
   },
   "compileOnSave": true,
   "buildOnSave": false,

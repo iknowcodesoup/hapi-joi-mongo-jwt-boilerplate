@@ -3,8 +3,9 @@ import pump from "pump";
 import config from '../config';
 import concat from "gulp-concat";
 import rollup from 'gulp-better-rollup';
-import packagesJson from '../../package.json';
 import Cache from 'gulp-file-cache';
+import packagesJson from '../../package.json';
+import includePaths from 'rollup-plugin-includepaths';
 
 var cache = new Cache();
 /* // NOTE: Enable for transpile
@@ -30,6 +31,12 @@ const babelConf = {
 gulp.task("build", ["compile"], function (cb) {
   var externalDependencies = Object.keys(packagesJson.dependencies);
 
+  let includePathOptions = {
+    paths: ['build'],
+    external: [],
+    extensions: ['.js', '.json']
+  };
+
   pump([
       gulp.src(`${config.buildDir}/server/app.js`),
       cache.filter(),
@@ -42,8 +49,12 @@ gulp.task("build", ["compile"], function (cb) {
           'buffer': 'Buffer',
           'boom': 'Boom',
           'mongoose': 'mongoose',
-          'jsonwebtoken': 'JWT'
-        }
+          'jsonwebtoken': 'JWT',
+          'es6-promise': 'es6Promise'
+        },
+        plugins: [
+          includePaths(includePathOptions)
+        ]
         //        plugins: [babel(babelConf)] // NOTE: Enable for transpile
       }, 'umd'),
       cache.cache(),

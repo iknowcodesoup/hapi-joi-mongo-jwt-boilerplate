@@ -9,7 +9,7 @@ gulp.task('watch', ["lint"], () => {
     ext: 'ts json',
     ignore: ['./src/server/keys'],
     tasks: ["lint"],
-    delay: 10,
+    delay: 2000,
     env: {
       'NODE_ENV': 'development'
     }

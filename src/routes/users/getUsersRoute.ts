@@ -1,6 +1,6 @@
 'use strict';
 
-import User from '../../models/User';
+import User from 'models/User';
 import Boom from 'boom';
 import { getUsersHandler } from './handlers/getUsersHandler';
 import { defaultResponseHandler } from '../defaultResponseHandler';

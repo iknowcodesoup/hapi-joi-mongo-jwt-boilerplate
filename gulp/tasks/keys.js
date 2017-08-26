@@ -5,6 +5,7 @@ import pump from "pump";
 import rename from 'gulp-rename';
 import del from 'del';
 
+// TODO: For dev. Migrate to ENV
 gulp.task('keys', ["clean"], (cb) => {
   pump([
     gulp.src('./src/server/keylib/*.txt'),
