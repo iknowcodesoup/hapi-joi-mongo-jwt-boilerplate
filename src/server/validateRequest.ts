@@ -1,5 +1,6 @@
 const validation = function(decoded, request, callback) {
 
+  console.log('decoded', decoded);
     return callback(null, true);
     /*    // do your checks to see if the person is valid
         if (!people[decoded.id]) {

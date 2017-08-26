@@ -4,6 +4,9 @@ import config from '../config';
 import concat from "gulp-concat";
 import rollup from 'gulp-better-rollup';
 import packagesJson from '../../package.json';
+import Cache from 'gulp-file-cache';
+
+var cache = new Cache();
 /* // NOTE: Enable for transpile
 import babel from "rollup-plugin-babel";
 
@@ -29,6 +32,7 @@ gulp.task("build", ["compile"], function (cb) {
 
   pump([
       gulp.src(`${config.buildDir}/server/app.js`),
+      cache.filter(),
       rollup({
         entry: `${config.buildDir}/server/app.js`,
         external: externalDependencies,
@@ -37,10 +41,12 @@ gulp.task("build", ["compile"], function (cb) {
           'hapi': 'Hapi',
           'buffer': 'Buffer',
           'boom': 'Boom',
-          'mongoose': 'mongoose'
+          'mongoose': 'mongoose',
+          'jsonwebtoken': 'JWT'
         }
         //        plugins: [babel(babelConf)] // NOTE: Enable for transpile
       }, 'umd'),
+      cache.cache(),
       concat('app.js'),
       gulp.dest(`${config.buildDir}`)
     ],

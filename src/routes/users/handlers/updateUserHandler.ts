@@ -11,12 +11,12 @@ const updateUserHandler = (request: Request, reply: IReply) => {
         _id: id
     }, request.pre.user, (err, user) => {
         if (err) {
-            throw Boom.badRequest(err);
+            return reply(Boom.badRequest(err));
         }
         if (!user) {
-            throw Boom.notFound('User not found!');
+            return reply(Boom.notFound('User not found!'));
         }
-        reply({
+        return reply({
             message: 'User updated!'
         });
     });

@@ -15,13 +15,6 @@ const userModel = new Schema({
 		index: {
 			unique: true
 		}
-	},
-	token: {
-		type: String,
-		required: true,
-		index: {
-			unique: true
-		}
 	}
 });
 

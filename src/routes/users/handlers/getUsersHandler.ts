@@ -11,12 +11,12 @@ const getUsersHandler = (request: Request, reply: IReply) => {
         .select('-__v')
         .exec((err, users) => {
             if (err) {
-                throw Boom.badRequest(err);
+                return reply(Boom.badRequest(err));
             }
             if (!users.length) {
-                throw Boom.notFound('No users found!');
+                return reply(Boom.notFound('No users found!'));
             }
-            reply(users);
+            return reply(users);
         })
 };
 

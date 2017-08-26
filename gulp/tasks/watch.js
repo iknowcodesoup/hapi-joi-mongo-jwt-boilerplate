@@ -7,7 +7,9 @@ gulp.task('watch', ["lint"], () => {
     script: './build/app.js',
     watch: './src',
     ext: 'ts json',
+    ignore: ['./src/server/keys'],
     tasks: ["lint"],
+    delay: 10,
     env: {
       'NODE_ENV': 'development'
     }

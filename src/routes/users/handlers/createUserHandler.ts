@@ -11,9 +11,9 @@ const createUserHandler = (request: Request, reply: IReply) => {
       user.username = request.payload.username;
       user.save((err, user) => {
         if (err) {
-          throw Boom.badRequest(err);
+          return reply(Boom.badRequest(err));
         }
-        reply().code(201);
+        return reply().code(201);
       });
 };
 
