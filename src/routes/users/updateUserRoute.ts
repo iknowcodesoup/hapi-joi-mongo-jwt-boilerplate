@@ -1,5 +1,5 @@
 import Boom from 'boom';
-import User from 'models/User';
+import { User } from 'models/index';
 import { verifyUniqueUserHandler } from './handlers/verifyUniqueUserHandler';
 import { updateUserHandler } from './handlers/updateUserHandler';
 import { defaultResponseHandler } from '../defaultResponseHandler';

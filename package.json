@@ -4,6 +4,7 @@
   "description": "",
   "main": "app.js",
   "scripts": {
+    "debug": "gulp watch",
     "watch": "gulp watch",
     "build": "gulp",
     "start": "pm2 start processes.json",
@@ -36,6 +37,7 @@
     "gulp": "^3.9.1",
     "gulp-babel": "^7.0.0",
     "gulp-better-rollup": "^1.1.1",
+    "gulp-clean": "^0.3.2",
     "gulp-concat": "^2.6.1",
     "gulp-file-cache": "0.0.1",
     "gulp-jshint": "^2.0.4",

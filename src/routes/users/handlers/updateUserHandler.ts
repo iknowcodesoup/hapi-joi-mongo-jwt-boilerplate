@@ -2,7 +2,7 @@ import {
     Request,
     IReply
 } from 'hapi';
-import User from 'models/User';
+import { User } from 'models/index';
 import Boom from 'boom';
 
 const updateUserHandler = (request: Request, reply: IReply) => {
