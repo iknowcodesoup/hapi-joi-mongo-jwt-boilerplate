@@ -2,3 +2,5 @@ build/
 node_modules/
 src/server/key*
 /dist
+.vs
+.git
