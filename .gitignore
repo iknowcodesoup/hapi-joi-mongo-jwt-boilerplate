@@ -1,6 +1,8 @@
-build/
 node_modules/
-src/server/key*
-/dist
+build
+dist
 .vs
 .git
+.env*
+src/server/keys/*
+!**/*.example*

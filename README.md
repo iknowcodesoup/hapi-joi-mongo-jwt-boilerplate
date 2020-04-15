@@ -23,13 +23,13 @@ The current plan is to introduce an assertation service to validate the client a
 ## Commands
 
 #### Build
-    gulp
+    npx webpack
 
 #### Debug
-    gulp watch
+    n/a
 
 #### Run
-    gulp prod
+    n/a
 
 ## TODOs
 * Add app / client assertion endpoint

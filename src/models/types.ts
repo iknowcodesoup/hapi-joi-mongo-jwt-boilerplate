@@ -23,4 +23,9 @@ type IUserPreRequest = IUserRequest & {
   };
 };
 
-export { UserRoleType, MongooseReadyStateType, IUserRequest, IUserPreRequest };
+interface IServerConfig extends NodeJS.ProcessEnv {
+  HAPI_PORT: string,
+  MONGO_DBURL: string,
+}
+
+export { UserRoleType, MongooseReadyStateType, IUserRequest, IUserPreRequest, IServerConfig };

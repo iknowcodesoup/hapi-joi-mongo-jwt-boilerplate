@@ -1,11 +1,12 @@
 {
-  "name": "svapi",
+  "name": "hapi-jwt",
   "version": "1.0.0",
   "description": "",
   "main": "app.js",
   "scripts": {
-    "build": "npx webpack",
-    "start": "pm2 start processes.json",
+    "build": "npx webpack --config webpack.prod.js --mode production",
+    "build-dev": "npx webpack --config webpack.dev.js --mode development",
+    "start": "webpack-dev-server --open --config webpack.dev.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {},
@@ -31,16 +32,23 @@
     "@babel/core": "^7.9.0",
     "@babel/preset-env": "^7.9.5",
     "@babel/register": "^7.9.0",
+    "@glints/hapi-webpack-dev-server-plugin": "^2.0.1",
     "@types/boom": "^7.3.0",
+    "@types/dotenv": "^8.2.0",
     "@types/hapi__hapi": "^19.0.2",
     "@types/hapi__joi": "^16.0.12",
     "@types/jsonwebtoken": "^8.3.9",
     "@types/lodash": "^4.14.149",
     "@types/mongoose": "^5.7.10",
     "@types/node": "^13.11.1",
+    "dotenv-webpack": "^1.7.0",
     "ts-loader": "^6.2.2",
     "typescript": "^3.8.3",
     "webpack": "^4.42.1",
-    "webpack-cli": "^3.3.11"
+    "webpack-cli": "^3.3.11",
+    "webpack-dev-middleware": "^3.7.2",
+    "webpack-hot-middleware": "^2.25.0",
+    "webpack-merge": "^4.2.2",
+    "webpack-node-externals": "^1.7.2"
   }
 }

@@ -4,20 +4,21 @@ import {
 import authValidation from './authValidation';
 import { Buffer } from 'buffer';
 import tokenSecret from './keys/token_secret';
+import * as hapiAuthJwt2 from 'hapi-auth-jwt2';
 
-const authSetup = (server: Server): void => {
+const authSetup = async (server: Server): Promise<void> => {
+  await server.register(hapiAuthJwt2);
+
   server.auth.strategy('jwt', 'jwt',
     {
-      key: new Buffer(tokenSecret, 'base64'),
+      key: Buffer.from(tokenSecret, 'base64'),
       verifyOptions: {
         algorithms: ['HS256']
       },
       urlKey: false,
       cookieKey: false,
-      verifyFunc: authValidation
+      validate: authValidation
     });
-
-  server.auth.default('jwt');
 };
 
 export { authSetup };
