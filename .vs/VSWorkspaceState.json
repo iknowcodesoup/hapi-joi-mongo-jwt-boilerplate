@@ -1,0 +1,14 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\src",
+    "\\src\\routes",
+    "\\src\\routes\\auth",
+    "\\src\\routes\\auth\\handlers",
+    "\\src\\routes\\status\\handlers",
+    "\\src\\routes\\users\\handlers",
+    "\\src\\server"
+  ],
+  "SelectedNode": "\\package.json",
+  "PreviewInSolutionExplorer": false
+}

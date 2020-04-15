@@ -1,23 +1,26 @@
 import {
-    Request,
-    IReply
-} from 'hapi';
-import { User } from 'models/index';
-import Boom from 'boom';
+  Request,
+  ResponseToolkit,
+  Lifecycle
+} from '@hapi/hapi';
+import { User, IUser } from '../../../models/User';
+import { badRequest, notFound } from '@hapi/boom';
+import { IUserRequest } from '../../../models/types';
 
-const getUsersHandler = (request: Request, reply: IReply) => {
-    User
-        .find()
-        .select('-__v')
-        .exec((err, users) => {
-            if (err) {
-                return reply(Boom.badRequest(err));
-            }
-            if (!users.length) {
-                return reply(Boom.notFound('No users found!'));
-            }
-            return reply(users);
-        })
+const getUsersHandler = (request: IUserRequest, responseToolkit: ResponseToolkit): any => {
+  User
+    .find()
+    .select('-__v')
+    .exec((err, users: IUser[]) => {
+      if (err) {
+        return badRequest(err.message);
+      }
+      if (!users.length) {
+        return notFound('No users found!');
+      }
+
+      return responseToolkit.continue;
+    });
 };
 
 export { getUsersHandler };

@@ -1,33 +1,32 @@
 import {
-    Request,
-    IReply
-} from 'hapi';
-import { User } from 'models/index';
-import Boom from 'boom';
+  Request,
+  ResponseToolkit,
+  Lifecycle
+} from '@hapi/hapi';
+import { User, IUser } from '../../../models/User';
+import { badRequest } from '@hapi/boom';
+import { IUserRequest } from '../../../models/types';
 
-const verifyUniqueUserHandler = (request: Request, reply: IReply) => {
-	User.findOne({
-		$or: [
-			{
-				email: request.payload.email
-			},
-			{
-				username: request.payload.username
-			}
+const verifyUniqueUserHandler = (request: IUserRequest, responseTookit: ResponseToolkit): any => {
+  User.findOne({
+    $or: [
+      {
+        email: request.payload.email
+      },
+      {
+        username: request.payload.username
+      }
     ]
-	}, (err, user) => {
-		if (user) {
-			if (user.username === request.payload.username) {
-				reply(Boom.badRequest('Username taken'));
-				return;
-			}
-			if (user.email === request.payload.email) {
-				reply(Boom.badRequest('Email taken'));
-				return;
-			}
-		}
-		reply(request.payload);
-	});
+  }, (err, user: IUser) => {
+    if (user) {
+      if (user.username === request.payload.username) {
+        return badRequest('Username taken');
+      }
+      if (user.email === request.payload.email) {
+        return badRequest('Email taken');
+      }
+    }
+  });
 };
 
 export { verifyUniqueUserHandler };

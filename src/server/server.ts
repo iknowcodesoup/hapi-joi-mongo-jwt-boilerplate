@@ -1,20 +1,16 @@
-import * as Hapi from 'hapi';
+import * as Hapi from '@hapi/hapi';
 import { authSetup } from './authSetup';
 import { hapiConfig, dbUrl } from './config';
 import { attachRoutes } from './attachRoutes';
-import * as jwtAuth from 'hapi-auth-jwt2';
-import mongoose from 'mongoose';
+import * as mongoose from 'mongoose';
 import * as es6Promise from 'es6-promise';
-//import bluebird from 'bluebird';
-//import plugins          from './plugins';
 
-const server = new Hapi.Server();
+const server = new Hapi.Server(hapiConfig);
 
-server.connection(hapiConfig);
-server.register(jwtAuth, () => { authSetup(server); });
+authSetup(server);  
 
-//plugins( server );
-mongoose.Promise = es6Promise.Promise;
+(<any>mongoose).Promise = es6Promise.Promise;
+
 mongoose.connect(dbUrl, {
   useMongoClient: true
 })
