@@ -29,7 +29,7 @@ The current plan is to introduce an assertation service to validate the client a
     npm run build-dev
 
 #### Run
-    node dist/app.js
+    npm run start
 
 ## TODOs
 * Add app / client assertion endpoint
