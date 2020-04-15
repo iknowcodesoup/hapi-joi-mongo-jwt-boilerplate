@@ -1,4 +1,4 @@
-# HapiJS, Joi, MongoDB and JWT Bolerplate
+# HapiJS, Joi, MongoDB and JWT Boilerplate
 
 The purpose and intent of this project is to provide a standardized template for establishing a secure API that will be used to connect to front-end / mobile applications.
 
@@ -23,18 +23,16 @@ The current plan is to introduce an assertation service to validate the client a
 ## Commands
 
 #### Build
-    npx webpack
+    npm run build
 
 #### Debug
-    n/a
+    npm run build-dev
 
 #### Run
-    n/a
+    node dist/app.js
 
 ## TODOs
 * Add app / client assertion endpoint
 * Complete OAuth2 validation logic and storage for JWT generation
-* Use build flags.?
-* Change key storage to ENV vars
 * Implement REDIS caching for valid JWT keys
 * For better scalability, the assertation client should be provisioned into it's own API / service.
