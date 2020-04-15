@@ -1,15 +1,15 @@
 import {
-    Request,
-    IReply
-} from 'hapi';
-import JWT from 'jsonwebtoken';
+  Request,
+  ResponseToolkit
+} from '@hapi/hapi';
+import { sign } from 'jsonwebtoken';
 import tokenSecret from '../../../server/keys/token_secret';
 
-const generateTokenHandler = (request: Request, reply: IReply) => {
-    var obj = { id: 123, "name": "Charlie" };
-    var token = JWT.sign(obj, tokenSecret);
+const generateTokenHandler = (request: Request, responseToolkit: ResponseToolkit) => {
+  var obj = { id: 123, "name": "Charlie" };
+  var token = sign(obj, tokenSecret);
 
-    reply(token);
+  return responseToolkit.response(token);
 };
 
 export { generateTokenHandler };

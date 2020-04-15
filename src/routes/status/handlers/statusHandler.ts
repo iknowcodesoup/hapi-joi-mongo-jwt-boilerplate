@@ -1,14 +1,14 @@
 import {
-    Request,
-    IReply
-} from 'hapi';
+  Request,
+  ResponseToolkit
+} from '@hapi/hapi';
 import { MongooseReadyStateType } from '../../../models/types';
-import mongoose from 'mongoose';
+import * as mongoose from 'mongoose';
 
-const statusHandler = (request: Request, reply: IReply) => {
-    reply({
-      db: MongooseReadyStateType[mongoose.connection.readyState] //mongoose.version
-    });
+const statusHandler = (request: Request, responseToolkit: ResponseToolkit) => {
+  return responseToolkit.response({
+    db: MongooseReadyStateType[mongoose.connection.readyState] //mongoose.version
+  }).code(200);
 };
 
 export { statusHandler };

@@ -1,10 +1,10 @@
 import {
-    Request,
-    IReply
-} from 'hapi';
+  Request,
+  ResponseToolkit
+} from '@hapi/hapi';
 
-const defaultResponseHandler = (request: Request, reply: IReply) => {
-    reply(request.pre.response).code(201); // .header("Authorization", request.headers.authorization)
+const defaultResponseHandler = (request: Request, responseTookit: ResponseToolkit) => {
+  return responseTookit.response(request.pre.response).code(201); // .header("Authorization", request.headers.authorization)
 };
 
 export { defaultResponseHandler };
