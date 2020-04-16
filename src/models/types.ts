@@ -24,6 +24,7 @@ type IUserPreRequest = IUserRequest & {
 };
 
 interface IServerConfig extends NodeJS.ProcessEnv {
+  ENABLE_SWAGGER: string,
   HAPI_PORT: string,
   MONGO_DBURL: string,
 }

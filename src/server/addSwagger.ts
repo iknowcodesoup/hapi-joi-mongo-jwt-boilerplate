@@ -2,9 +2,11 @@ import { Server, ServerRegisterPluginObject } from '@hapi/hapi';
 import * as HapiSwagger from 'hapi-swagger';
 import * as Inert from'@hapi/inert';
 import * as Vision from'@hapi/vision';
-//import { IServerConfig } from '../models/types';
+import { IServerConfig } from '../models/types';
 
 const addSwagger = async (server: Server): Promise<void> => {
+  if ((<IServerConfig>process.env).ENABLE_SWAGGER !== "TRUE")
+    return;
 
   const swaggerOptions: HapiSwagger.RegisterOptions = {
     info: {
