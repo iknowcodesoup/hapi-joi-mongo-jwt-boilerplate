@@ -2,13 +2,16 @@
   "name": "hapi-joi-mongoose-jwt",
   "version": "1.0.0",
   "description": "Hapi, Joi, Mongo(ose), JWT Auth - Boilerplate",
-  "main": "app.js",
+  "main": "dist/app.js",
   "scripts": {
     "build": "npx webpack --config webpack.prod.js --mode production",
     "build-dev": "npx webpack --config webpack.dev.js --mode development",
     "watch": "npx webpack -w --config webpack.dev.js --mode development",
     "start": "node dist/app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "engines": {
+    "node": "12.x"
   },
   "repository": {},
   "keywords": [],

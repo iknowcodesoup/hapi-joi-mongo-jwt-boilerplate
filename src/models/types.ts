@@ -24,7 +24,7 @@ type IUserPreRequest = IUserRequest & {
 };
 
 interface IServerConfig extends NodeJS.ProcessEnv {
-  HAPI_PORT: string,
+  PORT: string,
   DB_USER: string,
   DB_PWD: string,
   SWAGGER_API: string,

@@ -9,7 +9,7 @@ import { addSwagger } from './addSwagger';
 const serverSetup = async (): Promise<Server> => {
   let server = new Server({
     host: `localhost`,
-    port: (<IServerConfig>process.env).HAPI_PORT,
+    port: (<IServerConfig>process.env).PORT || 8080,
     routes: {
       cors: true
     }
