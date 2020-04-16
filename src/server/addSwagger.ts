@@ -8,7 +8,7 @@ const addSwagger = async (server: Server): Promise<void> => {
 
   const swaggerOptions: HapiSwagger.RegisterOptions = {
     info: {
-      title: 'Test API Documentation'
+      title: 'Hapi, Joi, Mongo(ose), JWT Auth - Boilerplate'
     }
   };
 

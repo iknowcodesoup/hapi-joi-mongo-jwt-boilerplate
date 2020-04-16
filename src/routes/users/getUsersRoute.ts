@@ -8,6 +8,9 @@ const getUsers: ServerRoute = {
   method: 'GET',
   path: '/api/users',
   options: {
+    description: 'Get all Users',
+    notes: 'Returns list of Users',
+    tags: ['api', 'users'],
     auth: 'jwt',
     pre: [
       { method: getUsersHandler, assign: 'response' }

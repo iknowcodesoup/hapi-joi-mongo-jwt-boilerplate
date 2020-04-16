@@ -10,6 +10,9 @@ const generateTokenRoute: ServerRoute =
   method: 'GET',
   path: '/api/auth/token',
   options: {
+    description: 'Generate Token',
+    notes: 'Generates a new Token',
+    tags: ['api', 'jwt', 'token'],
     auth: false,
     pre: [
       // TODO: Check for valid Oauth and app key

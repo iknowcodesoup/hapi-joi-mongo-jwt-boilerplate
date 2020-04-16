@@ -8,6 +8,9 @@ const createUserRoute: ServerRoute = {
   method: 'POST',
   path: '/api/users',
   options: {
+    description: 'Create User',
+    notes: 'Creates a new user',
+    tags: ['api', 'users'],
     auth: 'jwt',
     pre: [{
       method: verifyUniqueUserHandler,

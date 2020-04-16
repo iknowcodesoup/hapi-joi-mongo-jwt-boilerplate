@@ -9,6 +9,9 @@ const updateUserRoute: ServerRoute = {
   method: 'PATCH',
   path: '/api/users/{id}',
   options: {
+    description: 'Update a User',
+    notes: 'Updates a User',
+    tags: ['api', 'users'],
     auth: 'jwt',
     pre: [{
       method: verifyUniqueUserHandler,
