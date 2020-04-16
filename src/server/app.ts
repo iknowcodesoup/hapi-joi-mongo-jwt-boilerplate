@@ -1,7 +1,7 @@
 import setupServer from './setupServer';
 
 (async () => {
-  console.log(`API server starting`)
+  console.log(`API server starting.`)
   const server = await setupServer();
 
   await server

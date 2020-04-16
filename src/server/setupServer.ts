@@ -1,5 +1,6 @@
 import { Server } from '@hapi/hapi';
-import { authSetup } from './authSetup';
+import { authSetupJwt } from './authSetupJwt';
+import { authSetupSwagger } from './authSetupSwagger';
 import { dbSetup } from './dbSetup';
 import { attachRoutes } from './attachRoutes';
 import { IServerConfig } from '../models/types';
@@ -15,8 +16,11 @@ const serverSetup = async (): Promise<Server> => {
   });
 
   dbSetup();
-  await authSetup(server);
+
+  await authSetupJwt(server);
+  await authSetupSwagger(server);
   attachRoutes(server);
+
   await addSwagger(server);
 
   return server;

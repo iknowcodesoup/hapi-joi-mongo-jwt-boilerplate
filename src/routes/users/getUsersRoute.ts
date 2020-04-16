@@ -1,5 +1,3 @@
-'use strict';
-
 import { getUsersHandler } from './handlers/getUsersHandler';
 import { defaultResponseHandler } from '../defaultResponseHandler';
 import { ServerRoute } from '@hapi/hapi';

@@ -1,17 +1,17 @@
 import { Server, ServerRegisterPluginObject } from '@hapi/hapi';
 import * as HapiSwagger from 'hapi-swagger';
 import * as Inert from'@hapi/inert';
-import * as Vision from'@hapi/vision';
-import { IServerConfig } from '../models/types';
+import * as Vision from '@hapi/vision';
+import * as pkg from '../../package.json';
 
 const addSwagger = async (server: Server): Promise<void> => {
-  if ((<IServerConfig>process.env).ENABLE_SWAGGER !== "TRUE")
-    return;
+  console.log(`Registering Swagger.`)
 
   const swaggerOptions: HapiSwagger.RegisterOptions = {
     info: {
-      title: 'Hapi, Joi, Mongo(ose), JWT Auth - Boilerplate'
-    }
+      title: pkg.description
+    },
+    auth: 'swagger-auth'
   };
 
   const plugins: Array<ServerRegisterPluginObject<any>> = [

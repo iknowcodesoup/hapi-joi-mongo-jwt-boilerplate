@@ -24,9 +24,11 @@ type IUserPreRequest = IUserRequest & {
 };
 
 interface IServerConfig extends NodeJS.ProcessEnv {
-  ENABLE_SWAGGER: string,
   HAPI_PORT: string,
-  MONGO_DBURL: string,
+  DB_USER: string,
+  DB_PWD: string,
+  SWAGGER_API: string,
+  TOKEN_SECRET: string
 }
 
 export { UserRoleType, MongooseReadyStateType, IUserRequest, IUserPreRequest, IServerConfig };

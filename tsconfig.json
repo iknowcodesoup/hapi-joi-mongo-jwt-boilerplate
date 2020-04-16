@@ -12,10 +12,11 @@
     "sourceMap": true,
     "removeComments": true,
     "noLib": false,
+    "resolveJsonModule": true,
     "preserveConstEnums": true,
     "suppressImplicitAnyIndexErrors": true,
     "outDir": "./dist/",
-    "allowJs": true,
+    "allowJs": false,
     "types": [
       "node"
     ],

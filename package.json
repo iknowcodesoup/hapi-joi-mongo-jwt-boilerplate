@@ -1,7 +1,7 @@
 {
-  "name": "hapi-jwt",
+  "name": "hapi-joi-mongoose-jwt",
   "version": "1.0.0",
-  "description": "",
+  "description": "Hapi, Joi, Mongo(ose), JWT Auth - Boilerplate",
   "main": "app.js",
   "scripts": {
     "build": "npx webpack --config webpack.prod.js --mode production",
@@ -25,6 +25,7 @@
     "bcrypt": "^4.0.1",
     "buffer": "^5.0.7",
     "es6-promise": "^4.1.1",
+    "hapi-auth-header": "^3.0.1",
     "hapi-auth-jwt2": "^10.1.0",
     "hapi-swagger": "^13.0.0",
     "joi-objectid": "^3.0.1",
