@@ -36,3 +36,4 @@ The current plan is to introduce an assertation service to validate the client a
 * Complete OAuth2 validation logic and storage for JWT generation
 * Implement REDIS caching for valid JWT keys
 * For better scalability, the assertation client should be provisioned into it's own API / service.
+* Look at using [typesafe-hapi](https://github.com/mmiszy/typesafe-hapi) instead of manually creating types
