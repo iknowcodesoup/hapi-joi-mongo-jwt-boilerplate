@@ -1,9 +1,8 @@
 import setupServer from './setupServer';
 
-console.log(`API server starting`)
-
-const startServer = async () => {
-  let server = await setupServer();
+(async () => {
+  console.log(`API server starting`)
+  const server = await setupServer();
 
   await server
     .start()
@@ -11,6 +10,6 @@ const startServer = async () => {
     .catch((reason: any) => {
       console.error(reason);
     });
-};
-
-startServer();
+})().catch(e => {
+  console.error(e);
+});

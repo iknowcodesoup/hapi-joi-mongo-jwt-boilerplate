@@ -3,6 +3,7 @@ import { authSetup } from './authSetup';
 import { dbSetup } from './dbSetup';
 import { attachRoutes } from './attachRoutes';
 import { IServerConfig } from '../models/types';
+import { addSwagger } from './addSwagger';
 
 const serverSetup = async (): Promise<Server> => {
   let server = new Server({
@@ -16,6 +17,7 @@ const serverSetup = async (): Promise<Server> => {
   dbSetup();
   await authSetup(server);
   attachRoutes(server);
+  await addSwagger(server);
 
   return server;
 };

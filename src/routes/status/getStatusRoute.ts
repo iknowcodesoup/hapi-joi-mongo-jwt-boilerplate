@@ -10,6 +10,7 @@ const statusRoute: ServerRoute =
   method: 'GET',
   path: '/api/status',
   options: {
+    tags: ['api', 'healthcheck', 'status'],
     auth: false,
     pre: [{ method: statusHandler, assign: 'response' }]
   },

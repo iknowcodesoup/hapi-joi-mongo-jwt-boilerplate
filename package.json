@@ -6,6 +6,7 @@
   "scripts": {
     "build": "npx webpack --config webpack.prod.js --mode production",
     "build-dev": "npx webpack --config webpack.dev.js --mode development",
+    "watch": "npx webpack -w --config webpack.dev.js --mode development",
     "start": "node dist/app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -18,11 +19,14 @@
   "dependencies": {
     "@hapi/boom": "^9.1.0",
     "@hapi/hapi": "^19.1.1",
+    "@hapi/inert": "^6.0.1",
     "@hapi/joi": "^17.1.1",
+    "@hapi/vision": "^6.0.0",
     "bcrypt": "^4.0.1",
     "buffer": "^5.0.7",
     "es6-promise": "^4.1.1",
     "hapi-auth-jwt2": "^10.1.0",
+    "hapi-swagger": "^13.0.0",
     "joi-objectid": "^3.0.1",
     "jsonwebtoken": "^8.5.1",
     "lodash": "^4.6.1",
@@ -32,11 +36,11 @@
     "@babel/core": "^7.9.0",
     "@babel/preset-env": "^7.9.5",
     "@babel/register": "^7.9.0",
-    "@glints/hapi-webpack-dev-server-plugin": "^2.0.1",
     "@types/boom": "^7.3.0",
-    "@types/dotenv": "^8.2.0",
     "@types/hapi__hapi": "^19.0.2",
+    "@types/hapi__inert": "^5.2.0",
     "@types/hapi__joi": "^16.0.12",
+    "@types/hapi__vision": "^5.5.1",
     "@types/jsonwebtoken": "^8.3.9",
     "@types/lodash": "^4.14.149",
     "@types/mongoose": "^5.7.10",
@@ -46,8 +50,6 @@
     "typescript": "^3.8.3",
     "webpack": "^4.42.1",
     "webpack-cli": "^3.3.11",
-    "webpack-dev-middleware": "^3.7.2",
-    "webpack-hot-middleware": "^2.25.0",
     "webpack-merge": "^4.2.2",
     "webpack-node-externals": "^1.7.2"
   }
