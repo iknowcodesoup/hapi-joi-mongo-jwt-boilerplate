@@ -8,7 +8,7 @@ import { defaultResponseHandler } from '../defaultResponseHandler';
 const statusRoute: ServerRoute =
 {
   method: 'GET',
-  path: '/api/status',
+  path: '/status',
   options: {
     description: 'Get server status / health-check',
     notes: 'Returns list of server connections and their status. e.g. database, etc.',

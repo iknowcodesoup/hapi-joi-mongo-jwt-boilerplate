@@ -9,9 +9,20 @@ const addSwagger = async (server: Server): Promise<void> => {
 
   const swaggerOptions: HapiSwagger.RegisterOptions = {
     info: {
-      title: pkg.description
+      title: pkg.name,
+      version: pkg.version,
+      description: pkg.description,
+      license: {
+        name: pkg.license
+      },
+      contact: {
+        name: pkg.author,
+        url: pkg.homepage
+      }
     },
-    auth: 'swagger-auth'
+    auth: 'swagger-auth',
+    basePath: '/v1/',
+    sortEndpoints: 'ordered'
   };
 
   const plugins: Array<ServerRegisterPluginObject<any>> = [

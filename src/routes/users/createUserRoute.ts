@@ -6,12 +6,15 @@ import { ServerRoute } from '@hapi/hapi';
 
 const createUserRoute: ServerRoute = {
   method: 'POST',
-  path: '/api/users',
+  path: '/users',
   options: {
     description: 'Create User',
     notes: 'Creates a new user',
     tags: ['api', 'users'],
-    auth: 'jwt',
+    //auth: {
+    //  strategy: 'jwt',
+    //  scope: ['admin']
+    //},
     pre: [{
       method: verifyUniqueUserHandler,
       assign: 'user'

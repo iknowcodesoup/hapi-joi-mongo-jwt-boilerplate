@@ -7,15 +7,14 @@ Joi.objectId = require('joi-objectid')(Joi);
 
 const updateUserRoute: ServerRoute = {
   method: 'PATCH',
-  path: '/api/users/{id}',
+  path: '/users/{id}',
   options: {
     description: 'Update a User',
     notes: 'Updates a User',
     tags: ['api', 'users'],
     auth: 'jwt',
     pre: [{
-      method: verifyUniqueUserHandler,
-      assign: 'user'
+      method: verifyUniqueUserHandler
     },
     {
       method: updateUserHandler,

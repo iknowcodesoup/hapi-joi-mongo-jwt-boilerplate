@@ -5,12 +5,12 @@ import {
 import { generateTokenHandler } from './handlers/generateTokenHandler';
 import { tokenResponseHandler } from './handlers/tokenResponseHandler';
 
-const generateTokenRoute: ServerRoute =
+const validateTokenRoute: ServerRoute =
 {
   method: 'GET',
-  path: '/auth/token',
+  path: '/auth/token/validate',
   options: {
-    description: 'Generate Token',
+    description: 'Validate Token',
     notes: 'Generates a new Token',
     tags: ['api', 'jwt', 'token'],
     auth: false,
@@ -22,4 +22,4 @@ const generateTokenRoute: ServerRoute =
   handler: tokenResponseHandler
 };
 
-export default generateTokenRoute;
+export default validateTokenRoute;

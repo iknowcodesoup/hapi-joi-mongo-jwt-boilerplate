@@ -1,16 +1,13 @@
 import {
-  Request,
-  ResponseToolkit,
-  Lifecycle
-} from '@hapi/hapi';
+  ResponseToolkit,} from '@hapi/hapi';
 import { User, IUser } from '../../../models/User';
 import { badRequest, notFound } from '@hapi/boom';
 import { IUserPreRequest } from '../../../models/types';
 
-const updateUserHandler = (request: IUserPreRequest, responseToolkit: ResponseToolkit) => {
+const updateUserHandler = async (request: IUserPreRequest, responseToolkit: ResponseToolkit): Promise<any> => {
   const id = request.params.id;
 
-  User.findOneAndUpdate({
+  const updatedUser = await User.findOneAndUpdate({
     _id: id
   }, request.pre.user, (err, user: IUser) => {
     if (err) {
@@ -20,7 +17,7 @@ const updateUserHandler = (request: IUserPreRequest, responseToolkit: ResponseTo
       return notFound('User not found!');
     }
 
-    return responseToolkit.response('User updated');
+    return 'User updated';
   });
 };
 

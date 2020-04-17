@@ -1,26 +1,19 @@
 import {
-  Request,
-  ResponseToolkit,
-  Lifecycle
-} from '@hapi/hapi';
+  ResponseToolkit,} from '@hapi/hapi';
 import { User, IUser } from '../../../models/User';
-import { badRequest, notFound } from '@hapi/boom';
+import { notFound } from '@hapi/boom';
 import { IUserRequest } from '../../../models/types';
 
-const getUsersHandler = (request: IUserRequest, responseToolkit: ResponseToolkit): any => {
-  User
+const getUsersHandler = async (request: IUserRequest, responseToolkit: ResponseToolkit): Promise<IUser[]> => {
+  const users = await User
     .find()
-    .select('-__v')
-    .exec((err, users: IUser[]) => {
-      if (err) {
-        return badRequest(err.message);
-      }
-      if (!users.length) {
-        return notFound('No users found!');
-      }
+    .select('-__v');
 
-      return responseToolkit.continue;
-    });
+  if (users.length) {
+    return users;
+  }
+
+  throw notFound('No users found!');
 };
 
 export { getUsersHandler };

@@ -1,14 +1,11 @@
 import {
-  Request,
-  ResponseToolkit,
-  Lifecycle
-} from '@hapi/hapi';
-import { User, IUser } from '../../../models/User';
+  ResponseToolkit,} from '@hapi/hapi';
+import { User } from '../../../models/User';
 import { badRequest } from '@hapi/boom';
 import { IUserRequest } from '../../../models/types';
 
-const verifyUniqueUserHandler = (request: IUserRequest, responseTookit: ResponseToolkit): any => {
-  User.findOne({
+const verifyUniqueUserHandler = async (request: IUserRequest, responseTookit: ResponseToolkit): Promise<any> => {
+  const user = await User.findOne({
     $or: [
       {
         email: request.payload.email
@@ -17,16 +14,16 @@ const verifyUniqueUserHandler = (request: IUserRequest, responseTookit: Response
         username: request.payload.username
       }
     ]
-  }, (err, user: IUser) => {
-    if (user) {
-      if (user.username === request.payload.username) {
-        return badRequest('Username taken');
-      }
-      if (user.email === request.payload.email) {
-        return badRequest('Email taken');
-      }
-    }
   });
+
+  if (user) {
+    if (user.username === request.payload.username) {
+      throw badRequest('Username taken');
+    }
+    if (user.email === request.payload.email) {
+      throw badRequest('Email taken');
+    }
+  }
 };
 
 export { verifyUniqueUserHandler };
