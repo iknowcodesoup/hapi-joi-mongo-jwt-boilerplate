@@ -1,5 +1,8 @@
 # HapiJS, Joi, MongoDB and JWT Boilerplate
 
+> [!NOTE]
+> This project is a recreation of a project from 2014 or longer, and it's unclear as to the use in today's modern stack.
+
 The purpose and intent of this project is to provide a standardized template for establishing a secure API that will be used to connect to front-end / mobile applications.
 
 ## Authentication Workflow _(TBD)_
